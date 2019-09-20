@@ -14,4 +14,7 @@ for($i = 0; $i < pow(2, strlen($myrack)); $i++){
 	}
 }
 $racks = array_unique($racks);
+foreach($racks as $r) {
+	echo $r."\n";
+}
 print_r($racks);
