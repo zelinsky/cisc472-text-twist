@@ -1,0 +1,9 @@
+{
+  "require" : {
+    "php": "~7",
+    "ext-pdo_sqlite": "*"
+  },
+  "require-dev": {
+    "heroku/heroku-buildpack-php": "*"
+  }
+}
