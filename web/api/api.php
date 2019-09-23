@@ -31,6 +31,24 @@ function get_words($conn, $rack) {
     return $results;
 }
 
+function get_subracks($rack) {
+    $racks = [];
+    for($i = 0; $i < pow(2, strlen($rack)); $i++){
+	$ans = "";
+	for($j = 0; $j < strlen($rack); $j++){
+            //if the jth digit of i is 1 then include letter
+	    if (($i >> $j) % 2) {
+                $ans .= $rack[$j];
+	    }
+        }
+        if (strlen($ans) > 1){
+          $racks[] = $ans;	
+        }
+    }
+    $racks = array_unique($racks);
+    return $racks;
+}
+
     //foreach ($results as $r) {
     //$words = explode("@@", $r["words"]);
         //foreach ($words as $w) {
@@ -38,12 +56,24 @@ function get_words($conn, $rack) {
         //}
     //}
     do {
+        $results = [];
         $rack = generate_rack(6);
-	$results = get_words($conn, $rack);
+	$subracks = get_subracks($rack);
+        foreach($subracks as $r) {
+	    $result = get_words($conn, $r);
+            if (!empty($result)) {
+		$results = array_merge($results, explode("@@", $result[0]["words"]));
+	    }
+	}
     } while (empty($results));
-    $results = $results[0];
-    $results["rack"] = $rack;
-    $results["words"] = explode("@@", $results["words"]);
+    usort($results, function($a, $b) {
+	return strlen($a) - strlen($b) ?: strcmp($a, $b);
+    });
+    $ret["rack"] = $rack;
+    $ret["words"] = $results;
+    //$results = $results[0];
+    //$results["rack"] = $rack;
+    //$results["words"] = explode("@@", $results["words"]);
     //this part is perhaps overkill but I wanted to set the HTTP headers and status code
     //making to this line means everything was great with this request
     header('HTTP/1.1 200 OK');
@@ -51,6 +81,6 @@ function get_words($conn, $rack) {
     header('Content-Type: application/json');
     //this creates json and gives it back to the browser
 
-    echo json_encode($results);
+    echo json_encode($ret);
     
 
