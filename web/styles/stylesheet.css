@@ -1,0 +1,22 @@
+#title {
+    font-style: bold;
+    font-size: 2vw;
+    font-variant: small-caps;
+    font-family: Arial, Helvetica, sans-serif;
+    color: gray;
+}
+
+#rack {
+    letter-spacing: 10px;
+    color: blue;;
+}
+
+.well {
+    width: 6%;
+}
+
+#letters {
+    width: 100%;
+}
+
+
