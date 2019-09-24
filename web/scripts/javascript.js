@@ -1,7 +1,8 @@
 $(document).ready(function() {
 
     function makeGame(data) {
-	$("#id").html(data);
+	console.log(data);
+	$("#words").html(data);
     };
     
     $("#start").click(() => {
