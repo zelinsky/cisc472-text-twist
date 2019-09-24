@@ -77,6 +77,7 @@ function get_subracks($rack) {
     //this part is perhaps overkill but I wanted to set the HTTP headers and status code
     //making to this line means everything was great with this request
     header('HTTP/1.1 200 OK');
+    header("Access-Control-Allow-Origin: {$_SERVER['HTTP_ORIGIN']}");
     //this lets the browser know to expect json
     header('Content-Type: application/json');
     //this creates json and gives it back to the browser
