@@ -11,4 +11,14 @@
     color: blue;;
 }
 
+.jumbotron {
+    padding: 2px;
+}
+
+#letters {
+    width: 50%;
+    height: 60px;
+}
+
+
 
