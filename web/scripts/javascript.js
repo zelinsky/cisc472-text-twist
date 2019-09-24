@@ -1,8 +1,15 @@
 $(document).ready(function() {
-    $(".bye").click(() => {
-        var h = $("#title");
-        h.text("Bye!");
-    });
 
+    function makeGame(data) {
+	$("#id").html(data);
+    };
+    
+    $("#start").click(() => {
+	$.ajax({
+	    method: "GET",
+	    url: "/api",
+	    success: data=>{makeGame(data)}
+	});
+    });
 
 });
