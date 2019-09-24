@@ -1,8 +1,10 @@
 $(document).ready(function() {
 
     function makeGame(data) {
-	console.log(data);
 	$("#rack").html(data.rack);
+	data.words.forEach(word => {
+	    console.log(word);
+	});
     };
     
     $("#start").click(() => {
