@@ -2,7 +2,7 @@ $(document).ready(function() {
 
     function makeGame(data) {
 	console.log(data);
-	$("#words").html(data);
+	$("#rack").html(data.rack);
     };
     
     $("#start").click(() => {
