@@ -8,7 +8,7 @@ $(document).ready(function() {
     $("#start").click(() => {
 	$.ajax({
 	    method: "GET",
-	    url: "/api/",
+	    url: "/api/words",
 	    success: data=>{makeGame(data)}
 	});
     });
