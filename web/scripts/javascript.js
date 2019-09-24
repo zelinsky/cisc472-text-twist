@@ -6,7 +6,10 @@ $(document).ready(function() {
 	$("#4words").empty();
 	$("#5words").empty();
 	$("#6words").empty();
-	$("#rack").html(data.rack);
+	$("#rack").empty();
+	for(let i=0; i < data.rack.length; i++) {
+	    $("#rack").append(`<span class="rack-letter">${data.rack.charAt(i)}</span>`);
+	}
 	data.words.forEach(word => {
 	    let list;
 	    switch(word.length) {
@@ -29,9 +32,13 @@ $(document).ready(function() {
 		list = $("#2words");
 		break;
 	    }
-	    list.append('<li class="emptyword"></li>');
+	    list.append('<li class="empty-word"></li>');
 	});
     };
+
+    $(document).on("click", ".rack-letter", evt => {
+	$(evt.target).addClass("clicked");
+    });
     
     $("#start").click(() => {
 	$.ajax({

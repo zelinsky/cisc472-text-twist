@@ -8,7 +8,11 @@
 
 #rack {
     letter-spacing: 10px;
-    color: blue;;
+    color: blue;
+}
+
+.clicked {
+    color: red;
 }
 
 .jumbotron {
@@ -22,6 +26,10 @@
 
 ol {
     padding-left: 15px;
+}
+
+.button-box {
+    text-align: center;
 }
 
 
