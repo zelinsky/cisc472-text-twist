@@ -8,8 +8,23 @@ $(document).ready(function() {
 	    case 2:
 		list = $("#2words");
 		break;
+	    case 3:
+		list = $("#3words");
+		break;
+	    case 4:
+		list = $("#4words");
+		break;
+	    case 5:
+		list = $("#5words");
+		break;
+	    case 6:
+		list = $("#6words");
+		break;
+	    default:
+		list = $("#2words");
+		break;
 	    }
-	    list.append(`<li>${word}</li>`);
+	    list.append('<li class="emptyword"></li>');
 	});
     };
     
