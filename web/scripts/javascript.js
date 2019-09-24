@@ -1,6 +1,11 @@
 $(document).ready(function() {
 
     function makeGame(data) {
+	$("#2words").empty();
+	$("#3words").empty();
+	$("#4words").empty();
+	$("#5words").empty();
+	$("#6words").empty();
 	$("#rack").html(data.rack);
 	data.words.forEach(word => {
 	    let list;
