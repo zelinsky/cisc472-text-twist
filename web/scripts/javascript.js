@@ -98,7 +98,8 @@ $(document).ready(function() {
 			break;
 		    }
 
-		    const w = list.children().find(".empty-word").first();
+		    const w = list.children().find("li.empty-word").first();
+		    console.log(w);
 		    w.text(item);
 		    w.removeClass("empty-word");
 		    $("#clear").click();
