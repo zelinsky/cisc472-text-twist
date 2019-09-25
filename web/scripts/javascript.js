@@ -172,7 +172,7 @@ $(document).ready(function() {
 	    if (evt.which >= 65 && evt.which <= 90) {
 		let l = String.fromCharCode(evt.which).toUpperCase();
 		$("#rack").children.each(function () {
-		    if $(this).text() === l && !$(this).hasClass("clicked") {
+		    if ($(this).text() === l && !$(this).hasClass("clicked")) {
 			$(this).addClass("clicked");
 			$("#letters").append($(this).text());
 			return false;
