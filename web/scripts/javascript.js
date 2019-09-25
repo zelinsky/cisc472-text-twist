@@ -1,6 +1,6 @@
 $(document).ready(function() {
-
-    let words;
+    
+    let words = [];
 
     function makeGame(data) {
 	$("#2words").empty();
@@ -72,6 +72,7 @@ $(document).ready(function() {
 
     $("#enter").click(() => {
 	const word = $("#letters").text();
+	let correct = false;
 	if (word) {
 	    words.forEach(function(item, index, object) {
 		if (item === word) {
@@ -102,10 +103,13 @@ $(document).ready(function() {
 		    w.text(item);
 		    w.removeClass("empty-word");
 		    $("#clear").click();
+		    correct = true;
 		    return false;
 		}
 	    });
-	    $("#letters").effect("shake", {direction: "left", times: 3, distance: 50}, 1000);
+	    if (!correct) {
+		$("#letters").effect("shake", {direction: "left", times: 2, distance: 50}, 750);
+	    }
 	}
     });
     
