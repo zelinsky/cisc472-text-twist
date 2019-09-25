@@ -169,6 +169,11 @@ $(document).ready(function() {
 	    $("#start").click();
 	    break;
 	default:
+	    if (evt.which >= 65 && evt.which <= 90) {
+		let l = String.fromCharCode(e.which).toUpperCase();
+		console.log(l);
+		console.log($("#rack").text());
+	    }
 	    break;
 	}
     });
