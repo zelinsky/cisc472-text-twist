@@ -170,7 +170,7 @@ $(document).ready(function() {
 	    break;
 	default:
 	    if (evt.which >= 65 && evt.which <= 90) {
-		let l = String.fromCharCode(e.which).toUpperCase();
+		let l = String.fromCharCode(evt.which).toUpperCase();
 		console.log(l);
 		console.log($("#rack").text());
 	    }
