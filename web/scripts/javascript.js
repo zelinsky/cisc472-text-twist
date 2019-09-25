@@ -6,6 +6,7 @@ $(document).ready(function() {
 	$("#4words").empty();
 	$("#5words").empty();
 	$("#6words").empty();
+	$("#letters").empty();
 	$("#rack").empty();
 	for(let i=0; i < data.rack.length; i++) {
 	    $("#rack").append(`<span class="rack-letter">${data.rack.charAt(i)}</span>`);
@@ -36,8 +37,38 @@ $(document).ready(function() {
 	});
     };
 
-    $(document).on("click", ".rack-letter", evt => {
-	$(evt.target).addClass("clicked");
+    $(document).on("click", ".rack-letter", function() {
+	const l = $(this);
+	if (!l.hasClass("clicked")) {
+	    l.addClass("clicked");
+	    $("#letters").append(l.text());
+	}
+    });
+
+    $("#clear").click(() => {
+	$("#letters").empty();
+	$("#rack").children().each(function() {
+	    $(this).removeClass("clicked");
+	});
+    });
+
+    $("#backspace").click(() => {
+	const letters = $("#letters");
+	const text = letters.text();
+	if (text) {
+	    let l = text.charAt(text.length-1);
+	    letters.html(text.slice(0, -1));
+	    $("#rack").find(".clicked").each(function() {
+		if ($(this).text() === l) {
+		    $(this).removeClass("clicked");
+		    return false;
+		}
+	    });
+	}
+    });
+
+    $("#enter").click(() => {
+
     });
     
     $("#start").click(() => {
