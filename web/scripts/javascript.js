@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-    let words = ["H", "EE"];
+    let words;
 
     function makeGame(data) {
 	$("#2words").empty();
@@ -99,13 +99,13 @@ $(document).ready(function() {
 		    }
 
 		    const w = list.children(".empty-word").first();
-		    console.log(w);
 		    w.text(item);
 		    w.removeClass("empty-word");
 		    $("#clear").click();
 		    return false;
 		}
 	    });
+	    $("#letters").effect("shake", {direction: "left", times: 3, distance: 50}, 1000);
 	}
     });
     
