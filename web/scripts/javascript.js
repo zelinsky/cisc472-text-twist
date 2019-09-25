@@ -112,6 +112,37 @@ $(document).ready(function() {
 	    }
 	}
     });
+
+    $("#show").click() => {
+	words.forEach(function(item, index, object) {
+	    let list;
+	    switch(item.length) {
+	    case 2:
+		list = $("#2words");
+		break;
+	    case 3:
+		list = $("#3words");
+		break;
+	    case 4:
+		list = $("#4words");
+		break;
+	    case 5:
+		list = $("#5words");
+		break;
+	    case 6:
+		list = $("#6words");
+		break;
+	    default:
+		list = $("#2words");
+		break;
+	    }
+
+	    const w = list.children(".empty-word").first();
+	    w.text(item);
+	    w.removeClass("empty-word");
+	});
+	words = [];
+    });
     
     $("#start").click(() => {
 	$.ajax({
