@@ -1,5 +1,7 @@
 $(document).ready(function() {
 
+    let words;
+
     function makeGame(data) {
 	$("#2words").empty();
 	$("#3words").empty();
@@ -35,6 +37,7 @@ $(document).ready(function() {
 	    }
 	    list.append('<li class="empty-word"></li>');
 	});
+	words = data.words;
     };
 
     $(document).on("click", ".rack-letter", function() {
@@ -68,7 +71,7 @@ $(document).ready(function() {
     });
 
     $("#enter").click(() => {
-
+	console.log(words);
     });
     
     $("#start").click(() => {
