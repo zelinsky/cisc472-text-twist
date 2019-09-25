@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-    let words;
+    let words = ["H", "EE"];
 
     function makeGame(data) {
 	$("#2words").empty();
@@ -71,7 +71,41 @@ $(document).ready(function() {
     });
 
     $("#enter").click(() => {
-	console.log(words);
+	const word = $("#letters").text();
+	if (word) {
+	    words.forEach(function(item, index, object) {
+		if (item === word) {
+		    object.splice(index, 1);
+		    let list;
+		    switch(item.length) {
+		    case 2:
+			list = $("#2words");
+			break;
+		    case 3:
+			list = $("#3words");
+			break;
+		    case 4:
+			list = $("#4words");
+			break;
+		    case 5:
+			list = $("#5words");
+			break;
+		    case 6:
+			list = $("#6words");
+			break;
+		    default:
+			list = $("#2words");
+			break;
+		    }
+
+		    const w = list.children().find(".empty-word").first();
+		    w.text(item);
+		    w.removeClass("empty-word");
+		    $("#clear").click();
+		    return false;
+		}
+	    });
+	}
     });
     
     $("#start").click(() => {
