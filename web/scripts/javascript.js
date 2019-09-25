@@ -155,10 +155,8 @@ $(document).ready(function() {
     $("#start").click();
 
     $(document).keydown(evt => {
-	console.log(evt.which);
 	switch (evt.which) {
 	case 8: // backspace
-	    console.log("backspace");
 	    $("#backspace").click();
 	    break;
 	case 13: // enter
@@ -166,6 +164,9 @@ $(document).ready(function() {
 	    break;
 	case 27: // escape
 	    $("#clear").click();
+	    break;
+	case 32: // space
+	    $("#start").click();
 	    break;
 	default:
 	    break;
