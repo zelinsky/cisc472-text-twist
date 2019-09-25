@@ -171,8 +171,14 @@ $(document).ready(function() {
 	default:
 	    if (evt.which >= 65 && evt.which <= 90) {
 		let l = String.fromCharCode(evt.which).toUpperCase();
-		console.log(l);
-		console.log($("#rack").text());
+		$("#rack").children.each(function () {
+		    if $(this).text() === l && !$(this).hasClass("clicked") {
+			$(this).addClass("clicked");
+			$("#letters").append($(this).text());
+			return false;
+		    }
+		});
+		
 	    }
 	    break;
 	}
