@@ -113,7 +113,7 @@ $(document).ready(function() {
 	}
     });
 
-    $("#show").click() => {
+    $("#show").click(() => {
 	words.forEach(function(item, index, object) {
 	    let list;
 	    switch(item.length) {
