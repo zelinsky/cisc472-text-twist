@@ -153,4 +153,20 @@ $(document).ready(function() {
     });
 
     $("#start").click();
+
+    $(document).keypress(e => {
+	switch (e.which) {
+	case 8: // backspace
+	    $("#backspace").click();
+	    break;
+	case 13: // enter
+	    $("#enter").click();
+	    break;
+	case 27: // escape
+	    $("#clear").click();
+	    break;
+	default:
+	    break;
+	}
+    });
 });
