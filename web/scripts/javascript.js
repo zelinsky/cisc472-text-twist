@@ -155,8 +155,10 @@ $(document).ready(function() {
     $("#start").click();
 
     $(document).keydown(evt => {
+	console.log(evt.which);
 	switch (evt.which) {
 	case 8: // backspace
+	    console.log("backspace");
 	    $("#backspace").click();
 	    break;
 	case 13: // enter
