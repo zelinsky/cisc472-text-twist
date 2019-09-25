@@ -98,7 +98,7 @@ $(document).ready(function() {
 			break;
 		    }
 
-		    const w = list.children().find("li.empty-word").first();
+		    const w = list.children(".empty-word").first();
 		    console.log(w);
 		    w.text(item);
 		    w.removeClass("empty-word");
