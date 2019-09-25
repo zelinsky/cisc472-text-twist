@@ -154,8 +154,8 @@ $(document).ready(function() {
 
     $("#start").click();
 
-    $(document).keypress(e => {
-	switch (e.which) {
+    $(document).keydown(evt => {
+	switch (evt.which) {
 	case 8: // backspace
 	    $("#backspace").click();
 	    break;
